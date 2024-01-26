@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#print 'Best School' 10 times using while loop
+#print "To infinity and beyond" infinity time
 i=0
 while [ $i -ne 10 ]
 do
