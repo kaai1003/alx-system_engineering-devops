@@ -2,11 +2,11 @@
 file_line {'Turn off passwd auth':
   ensure => 'present',
   line   => '  BatchMode yes',
-  path   => '~/.ssh/config',
+  path   => '/etc/ssh/ssh_confi',
 }
 
 file_line {'Declare identity file':
   ensure => 'present',
   line   => '  IdentityFile ~/.ssh/school',
-  path   => '~/.ssh/config',
+  path   => '/etc/ssh/ssh_confi',
 }
