@@ -9,4 +9,4 @@ sudo ufw reload
 sudo su
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
 exit
-sudo service start nginx
+sudo service nginx restart
