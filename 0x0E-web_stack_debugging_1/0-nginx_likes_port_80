@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#fix server issue (unable to connect to port 80)
+sudo apt-get update
+sudo apt-get install nginx -y
+sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+sudo service nginx restart
