@@ -2,11 +2,11 @@
 #setup redirection web server with Nginx
 sudo apt-get -y update
 sudo apt-get -y install nginx
-yes | sudo ufw enable
+echo 'y' | sudo ufw enable
 sudo ufw allow 'Nginx HTTP'
 sudo ufw allow 22/tcp
 sudo ufw reload
-sudo su
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
-exit
+sudo chown -R $USER:$USER /var/www/
+echo "https://www.alxafrica.com" > /var/www/html/redirect_me
+sudo sed -i 's/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/www.alxafrica.com permanent;/' /etc/nginx/sites-enabled/default
 sudo service nginx restart
