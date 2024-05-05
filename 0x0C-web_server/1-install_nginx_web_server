@@ -2,13 +2,10 @@
 #setup web server with Nginx
 sudo apt-get -y update
 sudo apt-get -y install nginx
-yes | sudo ufw enable
+echo 'y' | sudo ufw enable
 sudo ufw allow 'Nginx HTTP'
 sudo ufw allow 22/tcp
 sudo ufw reload
-sudo su
-sudo mkdir -p /var/www/html
-sudo chmod -R 755 /var/www
-echo "Hello World!" > /var/www/html/index.html
-exit
-sudo service start nginx
+sudo chown -R $USER:$USER /var/www/
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sudo service nginx restart
