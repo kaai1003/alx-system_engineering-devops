@@ -7,6 +7,5 @@ sudo ufw allow 'Nginx HTTP'
 sudo ufw allow 22/tcp
 sudo ufw reload
 sudo chown -R "$USER":"$USER" /var/www/
-echo "https://www.alxafrica.com" > /var/www/html/redirect_me
 sudo sed -i 's/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/www.alxafrica.com permanent;/' /etc/nginx/sites-enabled/default
 sudo service nginx restart
