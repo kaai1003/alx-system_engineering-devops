@@ -7,6 +7,8 @@ sudo ufw allow 'Nginx HTTP'
 sudo ufw allow 22/tcp
 sudo ufw reload
 sudo chown -R "$USER":"$USER" /var/www/
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+sudo sed -i 's/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/www.alxafrica.com permanent;/' /etc/nginx/sites-enabled/default
 echo "Ceci n'est pas une page" > /var/www/html/404_error.html
 sudo sed -i 's/server_name _;/server_name _;\n\terror_page 404 \/404_error.html;/' /etc/nginx/sites-enabled/default
 sudo service nginx restart
