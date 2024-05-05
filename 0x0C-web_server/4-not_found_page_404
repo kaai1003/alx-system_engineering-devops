@@ -1,2 +1,12 @@
 #!/usr/bin/env bash
-#not found page 404
+#setup a costum 404 error page with Nginx
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo 'y' | sudo ufw enable
+sudo ufw allow 'Nginx HTTP'
+sudo ufw allow 22/tcp
+sudo ufw reload
+sudo chown -R "$USER":"$USER" /var/www/
+echo "Ceci n'est pas une page" > /var/www/html/404_error.html
+sudo sed -i 's/server_name _;/server_name _;\n\terror_page 404 \/404_error.html;/' /etc/nginx/sites-enabled/default
+sudo service nginx restart
