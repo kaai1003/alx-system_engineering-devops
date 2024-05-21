@@ -19,12 +19,10 @@ def first_line(id):
     for i in resp:
         if i['id'] == id:
             name = i['name']
-
     filename = 'student_output'
 
     with open(filename, 'r') as f:
         first = f.readline().strip()
-    print(first)
     if name in first:
         print("Employee Name: OK")
     else:
