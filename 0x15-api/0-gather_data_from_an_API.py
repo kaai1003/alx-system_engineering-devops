@@ -32,6 +32,7 @@ if __name__ == "__main__":
         print("Employee {} is done with tasks({}/{}):".format(user_name,
                                                               completed_tasks,
                                                               task_count))
-        for task in todos:
-            if task.get("userId") == id and task.get("completed"):
-                print("\t ".expandtabs(4) + task.get("title"))
+        print('\n'.join(["\t ".expandtabs(4) + todo.get('title')
+                         for todo in todos
+                         if todo.get('userId') == id and
+                         todo.get('completed')]))

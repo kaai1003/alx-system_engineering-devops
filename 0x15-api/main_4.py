@@ -21,8 +21,6 @@ def check_tasks(id):
         next(f)
         for line in f:
             count += 1
-            print(line[0] + "tab")
-            print(line[1] + "space")
             if line[0] == '\t' and line[1] == ' ' and line[-1] == '\n':
                 print("Task {} Formatting: OK".format(count))
             else:
