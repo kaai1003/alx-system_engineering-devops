@@ -35,4 +35,4 @@ if __name__ == "__main__":
                                                               completed_tasks,
                                                               task_count))
         for title in list_tasks:
-            print("     {}".format(title))
+            print("\t ".expandtabs(4) + title)
