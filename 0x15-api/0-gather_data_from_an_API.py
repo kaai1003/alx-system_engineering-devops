@@ -32,7 +32,7 @@ if __name__ == "__main__":
         print("Employee {} is done with tasks({}/{}):".format(user_name,
                                                               completed_tasks,
                                                               task_count))
-        print('\n'.join(["\t ".expandtabs(4) + todo.get('title')
+        print('\n'.join(["\t " + todo.get('title')
                          for todo in todos
                          if todo.get('userId') == id and
                          todo.get('completed')]))
